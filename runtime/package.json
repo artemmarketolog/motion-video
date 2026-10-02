@@ -1,0 +1,10 @@
+{
+  "name": "motion-video-runtime",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pinned local runtime for the motion-video skill",
+  "dependencies": {
+    "hyperframes": "0.8.84",
+    "gsap": "3.14.2"
+  }
+}

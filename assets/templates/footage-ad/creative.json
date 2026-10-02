@@ -1,0 +1,85 @@
+{
+ "title": "ПРИМЕР: кофейня — утренний кофе (замени на свой ролик)",
+ "client": "acme-coffee",
+ "format": "9:16",
+ "shots_dir": "/ABS/video-studio/shots/acme-coffee",
+ "edl": [
+  {
+   "shot": "01_barista_pours_latte__s1.mp4"
+  },
+  {
+   "shot": "02_woman_yawns_at_desk__s1.mp4"
+  },
+  {
+   "shot": "03_coffee_beans_closeup__s2.mp4",
+   "len": 2.4,
+   "from": 0.5
+  },
+  {
+   "shot": "04_friends_laugh_with_cups__s1.mp4"
+  },
+  {
+   "shot": "05_cup_handed_over_counter__s1.mp4"
+  },
+  {
+   "shot": "06_interior_morning_light__s3.mp4"
+  }
+ ],
+ "voice": {
+  "script": "work/script.txt",
+  "voice": "narrator",
+  "tempo": 1.15,
+  "start": 0.0
+ },
+ "music": {
+  "file": "/ABS/video-studio/music/upbeat-morning.mp3",
+  "carve": 0.5
+ },
+ "captions": {
+  "style": "pop",
+  "size": 76
+ },
+ "brand": {
+  "bg": "#fff7ef",
+  "ink": "#2a1a0f",
+  "accent": "#d9572b",
+  "accent_ink": "#ffffff",
+  "font": "Montserrat",
+  "weight": 800,
+  "scrim": "rgba(255,247,239,.58)",
+  "over_ink": "#2a1a0f"
+ },
+ "inserts": [
+  {
+   "type": "points",
+   "at_word": "зёрна",
+   "nth": 0,
+   "dur": 3.2,
+   "title": "Acme Coffee",
+   "items": [
+    "обжарка каждую неделю",
+    "4,9 на картах",
+    "с 7:30 утра"
+   ]
+  },
+  {
+   "type": "offer",
+   "at_word": "капучино",
+   "dur": 2.8,
+   "title": "Капучино|утром",
+   "old": "4,50 €",
+   "new": "2,90 €",
+   "sub": "до 11:00 по будням"
+  },
+  {
+   "type": "cta",
+   "at_word": "Заходите",
+   "dur": 3.0,
+   "title": "Ждём вас|утром",
+   "button": "Построить маршрут"
+  }
+ ],
+ "tail": 0.6,
+ "quality": "standard",
+ "_help": "Схема: references/footage.md. client — slug из <studio>/clients.json; edl — кадры банка по смыслу фраз (len — длина, from — с какой секунды клипа); sync=true — кадр под фразу (python3 build.py --plan-shows); voice — script+voice (новая озвучка через elevenlabs-voice, платно, кэш) или mp3+words (готовый утверждённый дубль); music.gain_db по умолчанию из <studio>/music/levels.json +6 dB; captions.style — pop|karaoke|word|calm|pill|accent; inserts — offer|stat|points|cta|logo, at_word/nth или at (секунда); bars/cards — плашки."
+}

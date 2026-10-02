@@ -1,0 +1,18 @@
+{
+  "_note": "Реестр клиентов студии: slug → имя, голос, папка Google Drive, стиль субтитров. Шаблон footage-ad берёт отсюда значения по умолчанию (поле client в creative.json). Новый клиент = новая запись. Приоритет: creative.json > overrides клиента > общий дефолт.",
+  "acme-coffee": {
+    "display_name": "Acme Coffee",
+    "drive_folder_id": "",
+    "tts_voice": "narrator",
+    "notes": "кофейня, ЦА 25–40, тон тёплый и дружеский",
+    "overrides": {
+      "font": "Montserrat",
+      "fontsize": 84,
+      "text_case": "upper",
+      "highlight_color": "#ffd400",
+      "pos": 0.65,
+      "seg_len": 3,
+      "zoom": 1.0
+    }
+  }
+}

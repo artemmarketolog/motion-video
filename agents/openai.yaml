@@ -1,0 +1,6 @@
+interface:
+  display_name: "Motion video"
+  short_description: "Моушен, монтаж, презентации и видео через код: 3 уровня, быстрые правки из кэша"
+  default_prompt: "Используй $motion-video, чтобы собрать или поправить ролик: тип и уровень по брифу, правки только изменённых кусков, проверка и выдача."
+policy:
+  allow_implicit_invocation: true
