@@ -151,7 +151,7 @@ def main():
     init_studio()
     print()
     report()
-    print(f'\nSmoke test (no paid calls, ~5 min): {py} {ROOT / "scripts/smoke_test.py"} --out /tmp/motion-smoke-1')
+    print(f'\nSmoke test (no paid calls, ~10 min): {py} {ROOT / "scripts/smoke_test.py"} --out /tmp/motion-smoke-1')
 
 
 if __name__ == '__main__':
