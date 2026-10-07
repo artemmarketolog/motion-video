@@ -80,6 +80,9 @@ sudo apt install -y python3 python3-venv ffmpeg bubblewrap nodejs npm   # Node.j
 sudo apt install -y libnss3 libatk-bridge2.0-0 libgbm1 libxkbcommon0 libasound2t64 libxcomposite1 libxdamage1 libxrandr2 libpango-1.0-0 libcairo2
 ```
 
+Кэш кусков старых роликов можно чистить раз в сутки (ролики, которые 2 суток не трогали):
+`( crontab -l 2>/dev/null; echo "40 4 * * * $HOME/.claude/skills/motion-video/scripts/cache_gc.sh" ) | crontab -`.
+
 Проверка среды: `python3 setup.py --check`. Если bubblewrap не стартует (Ubuntu 24.04 ограничивает user namespaces
 через AppArmor) — см. [references/runtime.md](references/runtime.md).
 
@@ -102,6 +105,7 @@ S=~/.claude/skills/motion-video/scripts; PY=~/.claude/skills/motion-video/.venv/
 V=~/video-studio/projects/acme-01
 $PY $S/new_project.py $V --template kinetic-type --format 9:16
 cd $V && $PY build.py && $PY $S/hf.py $V check --json
+$PY $S/preview.py $V --at 0,2,4,6 --name v1                              # лист превью до рендера
 $PY $S/mv.py build $V -o output/master-r1.mp4 --note "первая сборка"     # рендер
 # правка: поменяли текст в build.py
 $PY build.py && $PY $S/mv.py plan $V                                     # что перерисуется

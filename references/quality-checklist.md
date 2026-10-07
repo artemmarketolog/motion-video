@@ -2,6 +2,7 @@
 
 ## Всегда
 
+- До первого рендера: лист `preview.py` (`qa/preview-vN.jpg`) просмотрен и принят пользователем ([SKILL.md](../SKILL.md), раздел 2a).
 - `hf.py /ABS/VIDEO check --json --snapshots`: `ok: true`. Предупреждение `nested_structure_needs_subcomposition`
   у монолитной сцены безвредно. Любые `error` (перекрытие текста, текст под непрозрачным слоем, контраст)
   исправляй вёрсткой; `data-layout-allow-overlap` — только на конкретный текстовый блок, который
