@@ -31,10 +31,14 @@ def sandbox(project):
     for pattern in ('.env', '.env.*', '**/.env', '**/.env.*'):
         if next(project.glob(pattern), None) is not None:
             raise ValueError('Render directory contains an .env file; use a clean media directory')
+    # Render temp files go to disk, not to a tmpfs in RAM: on a 2 GB server the tmpfs is ~1 GB and
+    # HyperFrames refuses to render ("Low disk space"); on any server they would eat memory.
+    tmp = project / '.cache' / 'tmp'
+    tmp.mkdir(parents=True, exist_ok=True)
     args = ['bwrap', '--unshare-all', '--die-with-parent', '--new-session', '--clearenv',
             '--ro-bind', '/usr', '/usr', '--symlink', 'usr/bin', '/bin',
             '--symlink', 'usr/lib', '/lib', '--symlink', 'usr/lib64', '/lib64',
-            '--proc', '/proc', '--dev', '/dev', '--tmpfs', '/tmp', '--tmpfs', '/home',
+            '--proc', '/proc', '--dev', '/dev', '--bind', str(tmp), '/tmp', '--tmpfs', '/home',
             '--dir', str(Path.home()), '--dir', '/etc', '--dir', '/opt',
             '--ro-bind', str(node), '/opt/node',
             '--ro-bind', str(CHROME), '/opt/chrome',
